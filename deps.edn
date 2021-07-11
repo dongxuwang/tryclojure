@@ -1,0 +1,13 @@
+{:paths   ["src" "resources"]
+ :deps    {org.clojure/clojure       {:mvn/version "1.10.3"}
+           metosin/reitit            {:mvn/version "0.5.13"}
+           http-kit/http-kit         {:mvn/version "2.5.3"}
+           hiccup/hiccup             {:mvn/version "1.0.5"}
+           clojail/clojail           {:mvn/version "1.0.6"}}
+ :aliases {:run-m   {:main-opts ["-m" "tryclojure.core"]}
+           :uberjar {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.1.245"}}
+                     :exec-fn      hf.depstar/uberjar
+                     :exec-args    {:aot        true
+                                    :jar        "result.jar"
+                                    :main-class "tryclojure.core"
+                                    :sync-pom   true}}}}

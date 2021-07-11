@@ -11,8 +11,3 @@
     (is (= "10\n" (-> result :result first str)))
     (is (= "6" (-> result :result second str)))
     (is (= (read-string form) (-> result :expr)))))
-
-(alter-var-root #'noir.session/*noir-session* (constantly (atom {})))
-
-(deftest eval-request-test
-  (is (= "Execution Timed Out!" (:message (eval-request "(while true)")))))

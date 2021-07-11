@@ -40,9 +40,10 @@
   (html5
    [:head
     [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
+    [:link {:rel "shortcut icon" :href "data:image/x-icon;," :type "image/x-icon"}]
     (include-css "/css/tryclojure.css"
                  "/css/gh-fork-ribbon.css")
-    (include-js "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+    (include-js "/javascript/jquery-console/jquery-1.4.2.min.js"
                 "/javascript/jquery-console/jquery.console.js"
                 "/javascript/tryclojure.js")
     [:title "Try Clojure"]]
@@ -50,7 +51,7 @@
     [:div#wrapper
       [:div.github-fork-ribbon-wrapper.right
        [:div.github-fork-ribbon
-         (link-to "https://github.com/Raynes/tryclojure" "Fork me on GitHub")]]
+         (link-to "https://github.com/dongxuwang/tryclojure" "Fork me on GitHub")]]
      [:div#content
       [:div#header
        [:h1
@@ -63,15 +64,12 @@
         [:a#about.buttons.last "about"]]
        [:div#changer (home-html)]]
       [:div.footer
-       [:p.bottom "©2011-2012 Anthony Grimes and numerous contributors."]]
+       [:p.bottom "&copy;2011-2012 Anthony Grimes and numerous contributors."]]
+      [:script {:type "text/javascript", :src "https://www.googletagmanager.com/gtag/js?id=G-BX1FXHJWC2" :async "async"}]
       (javascript-tag
-       "var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-27340918-1']);
-        _gaq.push(['_trackPageview']);
+       "window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();")]]]))
+        gtag('config', 'G-BX1FXHJWC2');")]]]))
 
