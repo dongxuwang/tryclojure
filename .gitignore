@@ -1,6 +1,12 @@
+.idea
+target
+*.iml
 pom.xml
 *jar
 lib
 classes
 *~
 .lein-deps-sum
+.cpcache
+.nrepl-port
+.DS_Store

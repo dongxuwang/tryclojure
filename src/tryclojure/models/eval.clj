@@ -1,8 +1,7 @@
 (ns tryclojure.models.eval
   (:require [clojail.testers :refer [secure-tester-without-def blanket]]
             [clojail.core :refer [sandbox]]
-            [clojure.stacktrace :refer [root-cause]]
-            [noir.session :as session])
+            [clojure.stacktrace :refer [root-cause]])
   (:import java.io.StringWriter
 	   java.util.concurrent.TimeoutException))
 
@@ -26,15 +25,11 @@
                       (future (Thread/sleep 600000)
                               (-> *ns* .getName remove-ns)))))
 
-(defn find-sb [old]
-  (if-let [sb (get old "sb")]
-    old
-    (assoc old "sb" (make-sandbox))))
-
-(defn eval-request [expr]
+(defn eval-request [expr sb]
   (try
-    (eval-string expr (get (session/swap! find-sb) "sb"))
+    (eval-string expr sb)
     (catch TimeoutException _
       {:error true :message "Execution Timed Out!"})
     (catch Exception e
+      (.printStackTrace e)
       {:error true :message (str (root-cause e))})))

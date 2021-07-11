@@ -1,4 +1,5 @@
-(ns tryclojure.views.tutorial)
+(ns tryclojure.views.tutorial
+  (:require [clojure.java.io :as io]))
 
 (defn tutorial-html [page] 
-  (slurp (str "resources/public/tutorial/" page ".html")))
+  (slurp (io/resource (str "public/tutorial/" page ".html"))))
