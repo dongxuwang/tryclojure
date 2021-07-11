@@ -2,13 +2,13 @@
 
 TryClojure is a online Clojure REPL written using Noir and Chris Done's jquery console (you're awesome, Chris).
 
-[<img src="https://secure.travis-ci.org/Raynes/tryclojure.png"/>](http://travis-ci.org/Raynes/tryclojure)
+[<img src="https://travis-ci.com/dongxuwang/tryclojure.svg?branch=master"/>](https://travis-ci.com/dongxuwang/tryclojure)
 
 ## Usage
 
-http://tryclj.com
+https://www.try-clojure.com
 
-To run it locally, use `lein ring server`.
+To run it locally, use `clj -M:run-m`.
 
 ## Credits
 
