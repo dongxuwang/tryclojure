@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  try-clojure:
+    image: dongxu/try-clojure:1.0.0
+    environment:
+      - VIRTUAL_PORT=4000
+    networks:
+      - default
+    hostname: ${MAIN_DOMAIN}
+    env_file:
+      - ./.env
+
+networks:
+  default:
+    external:
+      name: ${NETWORK}
+
